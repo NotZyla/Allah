@@ -11018,19 +11018,3 @@ runFunction(function()
 		end
 	})
 end)
-
-runFunction(function()
-	local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-	local Crosshair = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		["Name"] = "Crosshair",
-		["Function"] = function(callback)
-			if callback then
-				infonotify("Crosshair", "Enabled!", 5)
-				mouse.Icon = "rbxassetid://9943168532"
-			else
-				infonotify("Crosshair", "Disabled!", 5)
-				mouse.Icon = ""
-			end
-		end
-	})
-end)
