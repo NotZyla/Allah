@@ -11039,7 +11039,7 @@ runFunction(function()
 				infonotify("BetterSpeed", "Restoring your speed...")
 				BetterSpeedVal = false
 				wait(1)
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 6
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 3
 			end
 		end
 	})
