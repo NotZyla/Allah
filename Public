@@ -10992,3 +10992,55 @@ local function YPIT_fake_script()
 	end)
 end
 coroutine.wrap(YPIT_fake_script)()
+
+runFunction(function()
+	local AnnoyingVal = false
+	local AnnoyingSoundAura = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+		["Name"] = "AnnoyingSoundAura",
+		["Function"] = function(callback)
+			if callback then
+				local success, err = pcall(function()
+					game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(" ")
+				end)
+				if success then
+					AnnoyingVal = true
+					game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+					while AnnoyingVal and task.wait() do
+						game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(" ")
+					end
+				else
+					warnnotify("AnnoyingSoundAura", "Chat is not found!")
+				end
+			elseif not callback then
+				AnnoyingVal = false
+				game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+			end
+		end
+	})
+end)
+
+runFunction(function()
+	local BetterSpeedVal = false
+	local BetterSpeed = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
+		["Name"] = "BetterSpeed",
+		["Function"] = function (callback)
+			if callback then
+				BetterSpeedVal = true
+				while BetterSpeedVal and task.wait() do
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
+					wait(0.2)
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
+					wait(0.4)
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
+					wait(0.2)
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
+				end
+			else
+				infonotify("BetterSpeed", "Restoring your speed...")
+				BetterSpeedVal = false
+				wait(1)
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 6
+			end
+		end
+	})
+end)
