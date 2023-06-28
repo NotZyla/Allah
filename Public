@@ -11018,3 +11018,24 @@ runFunction(function()
 		end
 	})
 end)
+
+runFunction(function()
+    local ACDisabler = {Enabled = false}
+    ACDisabler = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+        Name = "AntiCheatDisabler",
+        Function = function(callback)
+            if callback then
+                task.spawn(function()
+                   repeat task.wait()
+					local args = {
+						[1] = "{4b8456f9-2043-483b-91e7-c4ba58c63b6e}",
+						[2] = 0
+					}
+					
+					game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("SpiritBridgeEnter"):FireServer(unpack(args))
+            until not disablerenabled
+               end)
+            end
+        end
+    })
+end
