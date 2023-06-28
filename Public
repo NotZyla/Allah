@@ -11027,11 +11027,11 @@ runFunction(function()
 			if callback then
 				BetterSpeedVal = true
 				while BetterSpeedVal and task.wait() do
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
 					wait(0.2)
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
 					wait(0.4)
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
 					wait(0.2)
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
 				end
