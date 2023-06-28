@@ -11019,21 +11019,6 @@ runFunction(function()
 	})
 end)
 
-runFunction(function ()
-	local NoAnim = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		["Name"] = "NoAnim",
-		["Function"] = function (callback)
-			if callback then
-				infonotify("NoAnim", "Enabled!", 5)
-				game:GetService("Players").LocalPlayer.Character.Animate.Disabled = true
-			else
-				game:GetService("Players").LocalPlayer.Character.Animate.Disabled = false
-				infonotify("NoAnim", "Disabled!", 5)
-			end
-		end
-	})
-end)
-
 runFunction(function()
 	local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 	local Crosshair = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
