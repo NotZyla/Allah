@@ -11019,27 +11019,32 @@ runFunction(function()
 	})
 end)
 
-runFunction(function()
-	local BetterSpeedVal = false
-	local BetterSpeed = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-		["Name"] = "BetterSpeed",
+runFunction(function ()
+	local NoAnim = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+		["Name"] = "NoAnim",
 		["Function"] = function (callback)
 			if callback then
-				BetterSpeedVal = true
-				while BetterSpeedVal and task.wait() do
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
-					wait(0.2)
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
-					wait(0.4)
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
-					wait(0.2)
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
-				end
+				infonotify("NoAnim", "Enabled!", 5)
+				game:GetService("Players").LocalPlayer.Character.Animate.Disabled = true
 			else
-				infonotify("BetterSpeed", "Restoring your speed...")
-				BetterSpeedVal = false
-				wait(1)
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 3
+				game:GetService("Players").LocalPlayer.Character.Animate.Disabled = false
+				infonotify("NoAnim", "Disabled!", 5)
+			end
+		end
+	})
+end)
+
+runFunction(function()
+	local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+	local Crosshair = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+		["Name"] = "Crosshair",
+		["Function"] = function(callback)
+			if callback then
+				infonotify("Crosshair", "Enabled!", 5)
+				mouse.Icon = "rbxassetid://9943168532"
+			else
+				infonotify("Crosshair", "Disabled!", 5)
+				mouse.Icon = ""
 			end
 		end
 	})
